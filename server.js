@@ -205,6 +205,6 @@ app.get('/',function(req,res){
         res.send(data);
     });
 })
-app.listen(NODE_PORT, () => {
-  console.log('Example app listening on port 8000!')
+app.listen(process.env.PORT, () => {
+  console.log('Example app listening on port'+process.env.PORT)
 });
