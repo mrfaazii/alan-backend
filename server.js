@@ -12,12 +12,13 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use("/public", express.static(path.join(__dirname, 'pdf')));
 app.post('/', (req, res) => {
-    // console.log('req come ')
+     console.log('req come ')
     const { count } = req.body;
     const config={ headers: {Authorization :`Token token=${TOKEN}`,Accept:'application/vnd.moonclerk+json;version=1'}}
     // axios.get(`https://api.moonclerk.com/payments?count=${count}`,config)
     axios.get(`https://api.moonclerk.com/customers?count=${count}`,config)
     .then(function (response) {
+        console.log(response)
         // console.log(response.data.customers);
         // console.log(response.data.payments)
         generatePdf(response.data.customers);
@@ -25,11 +26,13 @@ app.post('/', (req, res) => {
         
     })
     .catch(function (error) {
+        console.log(error)
     })
     .finally(function () {
     });
 });
 function generatePdf(result){
+    console.log(result);
     // let array=[];
     const pdf  = new PDFDocument({
         layout: 'landscape',
