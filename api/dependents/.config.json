@@ -1,0 +1,5 @@
+{
+    "NODE_PORT": "8000",
+    "BASE_URL": "http://localhost",
+    "TOKEN": "dd2a73f394c3136dc63eb097192460f1"
+  }
